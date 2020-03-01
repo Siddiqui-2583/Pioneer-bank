@@ -82,9 +82,8 @@
         const depositBtn = document.getElementById("addDeposit");
 
         depositBtn.addEventListener("click",function(){
-            var depositAmount = document.getElementById("depositAmount").value;
-            var depositNumber = parseFloat(depositAmount);
-            document.getElementById("depositAmount").value="";
+            
+            const depositNumber = getInputNumber("depositAmount");
             /*console.log(depositAmount);
             var depositNumber =0;
             if(depositAmount = null){
@@ -122,15 +121,22 @@
 
             withdrawBtn.addEventListener("click",function(){
                 
-                var withdrawAmount = document.getElementById("withdrawAmount").value;
-                var withdrawNumber = parseFloat(withdrawAmount);
-                document.getElementById("withdrawAmount").value="";
+                const withdrawNumber = getInputNumber("withdrawAmount");
+
+                
                 //update deposit
                 updateWithdraw("currentWithdraw",withdrawNumber);
 
                 //update balance
                 updateBalance("currentBalance",withdrawNumber);
             })
+
+            function getInputNumber(id){
+                var amount = document.getElementById(id).value;
+                var amountNumber = parseFloat(amount);
+                document.getElementById("withdrawAmount").value="";
+                return amountNumber;
+            }
            
             function updateWithdraw(id,withdrawNumber){
                     
